@@ -15,7 +15,7 @@ static const int failonclear = 1;
 static const int timetocancel = 4;
 
 /* insert grid pattern with scale 1:1, the size can be changed with logosize */
-static const int logosize = 60;
+static const int logosize = 40;
 /* grid width and height for right center alignment */
 static const int logow = 30;
 static const int logoh = 10;
