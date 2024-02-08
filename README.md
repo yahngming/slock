@@ -1,2 +1,4 @@
 # slock
-Fork of slock
+
+- foreground and background
+- quickcancel
