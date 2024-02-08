@@ -15,22 +15,42 @@ static const int failonclear = 1;
 static const int timetocancel = 4;
 
 /* insert grid pattern with scale 1:1, the size can be changed with logosize */
-static const int logosize = 75;
+static const int logosize = 60;
 /* grid width and height for right center alignment */
-static const int logow = 12;
-static const int logoh = 6;
+static const int logow = 30;
+static const int logoh = 10;
 
-static XRectangle rectangles[9] = {
+static XRectangle rectangles[29] = {
 	/* x    y       w       h */
-	{ 0,    3,      1,      3 },
-	{ 1,    3,      2,      1 },
-	{ 0,    5,      8,      1 },
-	{ 3,    0,      1,      5 },
-	{ 5,    3,      1,      2 },
-	{ 7,    3,      1,      2 },
-	{ 8,    3,      4,      1 },
-	{ 9,    4,      1,      2 },
-	{ 11,   4,      1,      2 },
+	{ 0,    0,      1,      1 },
+	{ 1,    0,      1,      8 },
+	{ 2,    0,      1,      1 },
+	{ 4,    0,      1,      8 },
+	{ 5,    2,      1,      1 },
+	{ 6,    2,      1,      6 },
+	{ 8,    0,      1,      1 },
+	{ 8,    2,      1,      6 },
+	{ 10,   2,      1,      6 },
+	{ 11,   2,      1,      1 },
+	{ 12,   2,      1,      6 },
+	{ 14,   0,      1,      8 },
+	{ 15,   5,      1,      1 },
+	{ 16,   2,      1,      3 },
+	{ 16,   6,      1,      2 },
+	{ 18,   0,      1,      8 },
+	{ 19,   0,      1,      1 },
+	{ 19,   4,      1,      1 },
+	{ 20,   1,      1,      3 },
+	{ 22,   2,      1,      2 },
+	{ 22,   5,      1,      3 },
+	{ 23,   2,      1,      1 },
+	{ 23,   4,      1,      1 },
+	{ 23,   7,      1,      1 },
+	{ 24,   2,      1,      6 },
+	{ 26,   2,      1,      6 },
+	{ 27,   2,      1,      1 },
+	{ 27,   7,      1,      1 },
+	{ 28,   0,      1,      8 },
 };
 
 /*Enable blur*/
