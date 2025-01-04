@@ -12,7 +12,7 @@ static const char *colorname[NUMCOLS] = {
 static const int failonclear = 1;
 
 /* time in seconds to cancel lock with mouse movement */
-static const int timetocancel = 300;
+static const int timetocancel = 10;
 
 /* insert grid pattern with scale 1:1, the size can be changed with logosize */
 static const int logosize = 40;
