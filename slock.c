@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
+#include <spawn.h>
 #include <time.h>
 #include <sys/types.h>
 #include <X11/extensions/Xrandr.h>
