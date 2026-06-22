@@ -230,6 +230,9 @@ readpw(Display *dpy, struct xrandr *rr, struct lock **locks, int nscreens,
 				    (len + num < sizeof(passwd))) {
 					memcpy(passwd + len, buf, num);
 					len += num;
+				} else if (buf[0] == '\025') {
+					explicit_bzero(&passwd, sizeof(passwd));
+					len = 0;
 				}
 				break;
 			}
