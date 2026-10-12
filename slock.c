@@ -14,7 +14,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
-#include <spawn.h>
 #include <time.h>
 #include <sys/types.h>
 #include <X11/extensions/Xrandr.h>
@@ -27,7 +26,6 @@
 #include <X11/Xft/Xft.h>
 #include <Imlib2.h>
 
-#include "arg.h"
 #include "util.h"
 
 char *argv0;
@@ -386,7 +384,7 @@ lockscreen(Display *dpy, struct xrandr *rr, int screen)
 static void
 usage(void)
 {
-	die("usage: slock [-v] [cmd [arg ...]]\n");
+	die("usage: slock [-v]\n");
 }
 
 int
@@ -401,13 +399,12 @@ main(int argc, char **argv) {
 	Display *dpy;
 	int s, nlocks, nscreens;
 
-	ARGBEGIN {
-	case 'v':
+	if (argc > 1 && !strcmp(argv[1], "-v")) {
 		puts("slock-"VERSION);
 		return 0;
-	default:
+	} else if (argc > 1) {
 		usage();
-	} ARGEND
+	}
 
 	/* validate drop-user and -group */
 	errno = 0;
@@ -513,17 +510,6 @@ main(int argc, char **argv) {
 	/* did we manage to lock everything? */
 	if (nlocks != nscreens)
 		return 1;
-
-	/* run post-lock command */
-	if (argc > 0) {
-		pid_t pid;
-		extern char **environ;
-		int err = posix_spawnp(&pid, argv[0], NULL, NULL, argv, environ);
-		if (err) {
-			die("slock: failed to execute post-lock command: %s: %s\n",
-			    argv[0], strerror(err));
-		}
-	}
 
 	/* everything is now blank. Wait for the correct password */
 	readpw(dpy, &rr, locks, nscreens, hash);
